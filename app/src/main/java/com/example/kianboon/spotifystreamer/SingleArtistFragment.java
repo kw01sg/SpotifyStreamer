@@ -1,8 +1,10 @@
 package com.example.kianboon.spotifystreamer;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +14,14 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyService;
+import kaaes.spotify.webapi.android.models.Tracks;
+
 /**
  * Created by KianBoon on 10-Jul-15.
  */
-public class SingleArtistFragment extends Fragment {
+public class SingleArtistFragment extends ListFragment {
     private static final String TAG = SingleArtistFragment.class.getSimpleName();
 
     public static final String EXTRA_ARTIST_ID = "com.example.kianboon.spotifystreamer.artistid";
@@ -62,7 +68,7 @@ public class SingleArtistFragment extends Fragment {
 
         mImageView = (ImageView) rootView.findViewById(R.id.single_artist_image_view);
         getActivity().setTitle(mArtistName);
-        if (mImageView != null) {
+        if (mImageUri != null) {
             Picasso.with(getActivity()).load(mImageUri).into(mImageView);
         }
         else{
@@ -70,5 +76,16 @@ public class SingleArtistFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    private class FetchTracksTask extends AsyncTask<String, Void, Tracks> {
+        @Override
+        protected Tracks doInBackground(String... params) {
+            SpotifyApi api = new SpotifyApi();
+            SpotifyService spotify = api.getService();
+
+            // TODO: Get top tracks of artist
+
+        }
     }
 }
