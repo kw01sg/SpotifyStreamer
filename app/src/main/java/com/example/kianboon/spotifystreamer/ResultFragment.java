@@ -5,12 +5,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -56,6 +58,7 @@ public class ResultFragment extends ListFragment {
 
         FetchResultTask resultTask = new FetchResultTask();
         resultTask.execute(mSearchEntry);
+
     }
 
     @Override
@@ -103,6 +106,12 @@ public class ResultFragment extends ListFragment {
         @Override
         protected void onPostExecute(ArtistsPager results) {
             mArtists = results.artists.items;
+
+            if(mArtists.size() == 0) {
+                Toast toast = Toast.makeText(getActivity(), R.string.no_artist_results, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
 
             for (Artist art : mArtists) {
                 mAdapter.add(art);
