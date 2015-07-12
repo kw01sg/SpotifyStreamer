@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/single_artist"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,12 +11,5 @@
         android:layout_height="150dp"
         android:scaleType="centerCrop"
         android:clickable="false" />
-
-    <ListView
-        android:id="@+id/single_artist_top_tracks"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
 
 </LinearLayout>

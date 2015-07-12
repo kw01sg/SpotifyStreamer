@@ -1,6 +1,5 @@
 package com.example.kianboon.spotifystreamer;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -30,11 +27,6 @@ public class MainFragment extends android.support.v4.app.Fragment {
 
         // Locate EditText field and Search Button
         mEditText = (EditText) rootView.findViewById(R.id.main_fragment_edit_text);
-
-        // Put mEditText in focus
-        mEditText.requestFocus();
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-
         mSearchButton = (Button) rootView.findViewById(R.id.main_fragment_search_button);
 
         // Configure Search Button
@@ -48,6 +40,8 @@ public class MainFragment extends android.support.v4.app.Fragment {
                 startActivity(i);
             }
         });
+
+
 
         return rootView;
     }
