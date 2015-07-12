@@ -10,9 +10,8 @@
 
     <ImageView
         android:id="@+id/list_item_artist_image_view"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_weight="1"
         android:scaleType="centerCrop"
         android:layout_gravity="center"
         android:layout_margin="2dp"
@@ -20,12 +19,12 @@
 
     <TextView
         android:id="@+id/list_item_artist_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:textStyle="bold"
+        android:padding="16dp"
         android:gravity="center"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:clickable="false"/>
 
 </LinearLayout>
